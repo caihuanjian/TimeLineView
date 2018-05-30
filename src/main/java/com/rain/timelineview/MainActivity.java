@@ -3,15 +3,17 @@ package com.rain.timelineview;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rain.timelineview.views.TimeLineView;
+import com.rain.timelineview.views.TimeSelectionBar;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private TextView left, right, center;
     private String[] datas = new String[]{"10min", "15min", "20min", "25min", "30min", "45min"};
 
     @Override
@@ -49,5 +51,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         timeLineView2.selectByIndex(0);
+
+        //进度条
+        left = findViewById(R.id.tv_left);
+        right = findViewById(R.id.tv_right);
+        center = findViewById(R.id.tv_center);
+        TimeSelectionBar timeSelectionBar = findViewById(R.id.time_select_bar);
+        timeSelectionBar.setOnProgressChangeListener(new TimeSelectionBar.OnProgressChangeListener() {
+            @Override
+            public void onProgressChange(int leftPercent, int rightPercent, int centerPercent) {
+                left.setText(String.valueOf((leftPercent)));
+                right.setText(String.valueOf(rightPercent));
+                center.setText(String.valueOf(centerPercent));
+            }
+        });
     }
 }
