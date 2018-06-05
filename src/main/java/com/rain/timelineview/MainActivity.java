@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         timeLineView1.selectByIndex(0);
 
         TimeLineView timeLineView2 = findViewById(R.id.time2);
-        timeLineView2.setMode(TimeLineView.MODE_MULTI_CHOOSE);
+        timeLineView2.setMode(TimeLineView.Mode.MODE_SINGLE_CHOOSE);
         timeLineView2.initData(Arrays.asList(datas));
         timeLineView2.setOnSelectResultListener(new TimeLineView.OnSelectResultListener() {
             @Override

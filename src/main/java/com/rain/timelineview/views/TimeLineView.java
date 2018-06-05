@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -19,14 +20,19 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.rain.timelineview.views.TimeLineView.Mode.MODE_SINGLE_CHOOSE;
+
 /**
  * Created by HwanJ.Choi on 2018-5-25.
  */
 
 public class TimeLineView extends ViewGroup implements OnSelectChangedListener {
 
-    public static final int MODE_SINGLE_CHOOSE = 0;
-    public static final int MODE_MULTI_CHOOSE = 1;
+    @IntDef({Mode.MODE_MULTI_CHOOSE, MODE_SINGLE_CHOOSE})
+    public @interface Mode {
+        int MODE_SINGLE_CHOOSE = 0;
+        int MODE_MULTI_CHOOSE = 1;
+    }
 
     private static final int DEFAULT_DOT_STROKE_WIDTH = 20;
     private static final int DEFAULT_TEXT_TOP_MARGIN = 0;
@@ -180,7 +186,7 @@ public class TimeLineView extends ViewGroup implements OnSelectChangedListener {
         invalidate();
     }
 
-    public void setMode(int mode) {
+    public void setMode(@Mode int mode) {
         mMode = mode;
     }
 

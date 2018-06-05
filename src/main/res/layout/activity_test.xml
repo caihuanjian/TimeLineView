@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HWANJ"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/test"
+        app:layout_constraintBaseline_toBaselineOf="@+id/test"
+
+        />
+</android.support.constraint.ConstraintLayout>
